@@ -14,9 +14,11 @@ const MB = 1024 * 1024;
 const held = [];
 
 function allocate(mb) {
-  // Buffer.alloc zero-fills, which forces the OS to really back the pages with RAM
-  // (Buffer.allocUnsafe or untouched memory might not count against the limit).
-  for (let i = 0; i < mb; i++) held.push(Buffer.alloc(MB));
+  // Fill with a NON-zero byte. Large blocks come from the kernel as fresh pages that
+  // are already zero, so a plain Buffer.alloc(MB) skips writing them and they never
+  // count as used memory (we measured rss=52 MB while "holding" 160 MB). Writing 1s
+  // touches every page, so the memory really counts against the container limit.
+  for (let i = 0; i < mb; i++) held.push(Buffer.alloc(MB, 1));
 }
 
 function rssMb() {
