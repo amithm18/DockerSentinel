@@ -1,0 +1,8 @@
+{
+  "name": "bad-release",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DockSentinel lab app: v2 is built broken to simulate a bad release",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" }
+}

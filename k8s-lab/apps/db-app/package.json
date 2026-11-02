@@ -1,0 +1,11 @@
+{
+  "name": "db-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DockSentinel lab app: depends on PostgreSQL, exits after 3 failed checks",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "dependencies": {
+    "pg": "^8.13.0"
+  }
+}

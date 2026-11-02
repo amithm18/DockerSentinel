@@ -1,0 +1,8 @@
+{
+  "name": "memory-hog",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DockSentinel lab app: uses a controllable amount of memory",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" }
+}
