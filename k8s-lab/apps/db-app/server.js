@@ -57,3 +57,10 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => console.log(`[db-app] listening on ${PORT}`));
 checkDb();
 setInterval(checkDb, CHECK_EVERY_MS);
+
+// Node as PID 1 in a container ignores SIGTERM by default, so Kubernetes would
+// wait the full 30 s grace period before killing the pod. Exit promptly instead.
+process.on('SIGTERM', () => {
+  console.log('[db-app] received SIGTERM, shutting down');
+  process.exit(0);
+});
