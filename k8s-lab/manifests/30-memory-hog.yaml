@@ -1,0 +1,51 @@
+# memory-hog: used for the "oom-limit" and "oom-leak" scenarios.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: memory-hog
+  namespace: lab
+  labels: { app: memory-hog, part-of: docksentinel-lab }
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: memory-hog }
+  template:
+    metadata:
+      labels:
+        app: memory-hog
+        part-of: docksentinel-lab
+        docksentinel.io/enabled: "true"
+    spec:
+      containers:
+        - name: app
+          image: lab/memory-hog:v1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - { name: MODE, value: steady }
+            - { name: WORKING_SET_MB, value: "30" }
+          resources:
+            requests: { cpu: 50m, memory: 64Mi }
+            # Going over this limit makes the kernel kill the container (OOMKilled, exit 137).
+            limits:   { cpu: 250m, memory: 128Mi }
+          readinessProbe:
+            httpGet: { path: /healthz, port: 8080 }
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          livenessProbe:
+            tcpSocket: { port: 8080 }
+            initialDelaySeconds: 30
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: memory-hog
+  namespace: lab
+  labels: { app: memory-hog, part-of: docksentinel-lab }
+spec:
+  selector: { app: memory-hog }
+  ports:
+    - port: 8080
+      targetPort: 8080

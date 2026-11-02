@@ -1,0 +1,65 @@
+# PostgreSQL: the database db-app depends on. Data lives in the pod (emptyDir),
+# which is fine for a lab: a fresh DB on every restart.
+apiVersion: v1
+kind: Secret
+metadata:
+  name: postgres-secret
+  namespace: lab
+  labels: { app: postgres, part-of: docksentinel-lab }
+type: Opaque
+stringData:            # stringData = plain text here; Kubernetes stores it base64-encoded
+  POSTGRES_USER: lab
+  POSTGRES_PASSWORD: labpass
+  POSTGRES_DB: labdb
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+  namespace: lab
+  labels: { app: postgres, part-of: docksentinel-lab }
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: postgres }
+  template:
+    metadata:
+      labels: { app: postgres, part-of: docksentinel-lab }
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - secretRef: { name: postgres-secret }   # every key becomes an env var
+          resources:
+            requests: { cpu: 50m, memory: 100Mi }
+            limits:   { cpu: 250m, memory: 256Mi }
+          # Ready only once the server accepts connections.
+          readinessProbe:
+            exec: { command: ["pg_isready", "-U", "lab", "-d", "labdb"] }
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            exec: { command: ["pg_isready", "-U", "lab", "-d", "labdb"] }
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          volumeMounts:
+            - { name: data, mountPath: /var/lib/postgresql/data }
+      volumes:
+        - name: data
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres          # db-app reaches it at hostname "postgres"
+  namespace: lab
+  labels: { app: postgres, part-of: docksentinel-lab }
+spec:
+  selector: { app: postgres }
+  ports:
+    - port: 5432
+      targetPort: 5432

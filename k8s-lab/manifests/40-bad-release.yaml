@@ -1,0 +1,54 @@
+# bad-release: v1 works, v2 crashes on start. Used for "bad-release" and "bad-image".
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bad-release
+  namespace: lab
+  labels: { app: bad-release, part-of: docksentinel-lab }
+  annotations:
+    kubernetes.io/change-cause: "v1 initial"   # shown in "kubectl rollout history"
+spec:
+  replicas: 2
+  selector:
+    matchLabels: { app: bad-release }
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0   # never remove an old pod until a new one is Ready...
+      maxSurge: 1         # ...and add at most one extra pod at a time.
+  template:
+    metadata:
+      labels:
+        app: bad-release
+        part-of: docksentinel-lab
+        docksentinel.io/enabled: "true"
+    spec:
+      containers:
+        - name: app
+          image: lab/bad-release:v1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          resources:
+            requests: { cpu: 50m, memory: 64Mi }
+            limits:   { cpu: 250m, memory: 128Mi }
+          readinessProbe:
+            httpGet: { path: /healthz, port: 8080 }
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          livenessProbe:
+            tcpSocket: { port: 8080 }
+            initialDelaySeconds: 30
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bad-release
+  namespace: lab
+  labels: { app: bad-release, part-of: docksentinel-lab }
+spec:
+  selector: { app: bad-release }
+  ports:
+    - port: 8080
+      targetPort: 8080
