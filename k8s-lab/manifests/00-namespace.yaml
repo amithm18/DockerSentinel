@@ -1,0 +1,8 @@
+# A namespace is a folder inside the cluster; every lab object lives in "lab"
+# so it can be inspected or wiped without touching system components.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lab
+  labels:
+    part-of: docksentinel-lab

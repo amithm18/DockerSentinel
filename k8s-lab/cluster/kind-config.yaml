@@ -1,0 +1,10 @@
+# kind cluster for the DockSentinel failure lab.
+# kind runs each Kubernetes "node" as a Docker container on this laptop.
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: docksentinel
+nodes:
+  # The control plane runs the API server, scheduler and controllers (the "brain").
+  - role: control-plane
+  # The worker is where our lab app pods get scheduled.
+  - role: worker
