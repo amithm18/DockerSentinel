@@ -540,18 +540,18 @@
             "kind": "Pod",
             "metadata": {
                 "annotations": {
-                    "kubectl.kubernetes.io/restartedAt": "2026-11-02T20:42:29+05:30"
+                    "kubectl.kubernetes.io/restartedAt": "2026-11-02T20:45:04+05:30"
                 },
-                "creationTimestamp": "2026-11-02T15:12:29Z",
-                "generateName": "db-app-6cfd86b699-",
+                "creationTimestamp": "2026-11-02T15:15:04Z",
+                "generateName": "db-app-654959d6b5-",
                 "generation": 1,
                 "labels": {
                     "app": "db-app",
                     "docksentinel.io/enabled": "true",
                     "part-of": "docksentinel-lab",
-                    "pod-template-hash": "6cfd86b699"
+                    "pod-template-hash": "654959d6b5"
                 },
-                "name": "db-app-6cfd86b699-5txwv",
+                "name": "db-app-654959d6b5-n4fbk",
                 "namespace": "lab",
                 "ownerReferences": [
                     {
@@ -559,12 +559,12 @@
                         "blockOwnerDeletion": true,
                         "controller": true,
                         "kind": "ReplicaSet",
-                        "name": "db-app-6cfd86b699",
-                        "uid": "02fab2ae-7414-415f-a57f-8437fd4cc75a"
+                        "name": "db-app-654959d6b5",
+                        "uid": "d38e1d0b-086d-449a-9fcd-3a246bef7350"
                     }
                 ],
-                "resourceVersion": "3178",
-                "uid": "5cda8ce9-4a23-4775-8aed-16f6e16cd294"
+                "resourceVersion": "3680",
+                "uid": "ad444fe5-c82f-4b3f-aba9-d45dde1eecfc"
             },
             "spec": {
                 "containers": [
@@ -626,7 +626,7 @@
                         "volumeMounts": [
                             {
                                 "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
-                                "name": "kube-api-access-tgv86",
+                                "name": "kube-api-access-47zmg",
                                 "readOnly": true
                             }
                         ]
@@ -659,7 +659,7 @@
                 ],
                 "volumes": [
                     {
-                        "name": "kube-api-access-tgv86",
+                        "name": "kube-api-access-47zmg",
                         "projected": {
                             "defaultMode": 420,
                             "sources": [
@@ -706,21 +706,21 @@
                 "conditions": [
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2026-11-02T15:12:29Z",
+                        "lastTransitionTime": "2026-11-02T15:15:05Z",
                         "observedGeneration": 1,
                         "status": "True",
                         "type": "PodReadyToStartContainers"
                     },
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2026-11-02T15:12:29Z",
+                        "lastTransitionTime": "2026-11-02T15:15:04Z",
                         "observedGeneration": 1,
                         "status": "True",
                         "type": "Initialized"
                     },
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2026-11-02T15:12:29Z",
+                        "lastTransitionTime": "2026-11-02T15:15:04Z",
                         "message": "containers with unready status: [app]",
                         "observedGeneration": 1,
                         "reason": "ContainersNotReady",
@@ -729,7 +729,7 @@
                     },
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2026-11-02T15:12:29Z",
+                        "lastTransitionTime": "2026-11-02T15:15:04Z",
                         "message": "containers with unready status: [app]",
                         "observedGeneration": 1,
                         "reason": "ContainersNotReady",
@@ -738,7 +738,7 @@
                     },
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2026-11-02T15:12:29Z",
+                        "lastTransitionTime": "2026-11-02T15:15:04Z",
                         "observedGeneration": 1,
                         "status": "True",
                         "type": "PodScheduled"
@@ -762,7 +762,7 @@
                         "volumeMounts": [
                             {
                                 "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
-                                "name": "kube-api-access-tgv86",
+                                "name": "kube-api-access-47zmg",
                                 "readOnly": true,
                                 "recursiveReadOnly": "Disabled"
                             }
@@ -777,10 +777,10 @@
                 ],
                 "observedGeneration": 1,
                 "phase": "Pending",
-                "podIP": "10.244.1.30",
+                "podIP": "10.244.1.35",
                 "podIPs": [
                     {
-                        "ip": "10.244.1.30"
+                        "ip": "10.244.1.35"
                     }
                 ],
                 "qosClass": "Burstable",
@@ -794,7 +794,7 @@
                         "memory": "64Mi"
                     }
                 },
-                "startTime": "2026-11-02T15:12:29Z"
+                "startTime": "2026-11-02T15:15:04Z"
             }
         },
         {
@@ -802,18 +802,18 @@
             "kind": "Pod",
             "metadata": {
                 "annotations": {
-                    "kubectl.kubernetes.io/restartedAt": "2026-11-02T20:42:22+05:30"
+                    "kubectl.kubernetes.io/restartedAt": "2026-11-02T20:44:58+05:30"
                 },
-                "creationTimestamp": "2026-11-02T15:12:22Z",
-                "generateName": "db-app-ccd5c8d66-",
+                "creationTimestamp": "2026-11-02T15:14:58Z",
+                "generateName": "db-app-6cc5498f97-",
                 "generation": 1,
                 "labels": {
                     "app": "db-app",
                     "docksentinel.io/enabled": "true",
                     "part-of": "docksentinel-lab",
-                    "pod-template-hash": "ccd5c8d66"
+                    "pod-template-hash": "6cc5498f97"
                 },
-                "name": "db-app-ccd5c8d66-w9kfp",
+                "name": "db-app-6cc5498f97-w4drx",
                 "namespace": "lab",
                 "ownerReferences": [
                     {
@@ -821,12 +821,12 @@
                         "blockOwnerDeletion": true,
                         "controller": true,
                         "kind": "ReplicaSet",
-                        "name": "db-app-ccd5c8d66",
-                        "uid": "02622883-a8bf-4998-9979-14d7a456764f"
+                        "name": "db-app-6cc5498f97",
+                        "uid": "ed31255a-86aa-476b-a5aa-5bb59111a74a"
                     }
                 ],
-                "resourceVersion": "3139",
-                "uid": "4a43a55d-c7c2-49cf-b417-08e67352f264"
+                "resourceVersion": "3644",
+                "uid": "20f2225b-51d7-4666-8bab-36fb0ff053e4"
             },
             "spec": {
                 "containers": [
@@ -888,7 +888,7 @@
                         "volumeMounts": [
                             {
                                 "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
-                                "name": "kube-api-access-r88bs",
+                                "name": "kube-api-access-n55rr",
                                 "readOnly": true
                             }
                         ]
@@ -921,7 +921,7 @@
                 ],
                 "volumes": [
                     {
-                        "name": "kube-api-access-r88bs",
+                        "name": "kube-api-access-n55rr",
                         "projected": {
                             "defaultMode": 420,
                             "sources": [
@@ -968,35 +968,35 @@
                 "conditions": [
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2026-11-02T15:12:23Z",
+                        "lastTransitionTime": "2026-11-02T15:14:59Z",
                         "observedGeneration": 1,
                         "status": "True",
                         "type": "PodReadyToStartContainers"
                     },
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2026-11-02T15:12:22Z",
+                        "lastTransitionTime": "2026-11-02T15:14:58Z",
                         "observedGeneration": 1,
                         "status": "True",
                         "type": "Initialized"
                     },
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2026-11-02T15:12:29Z",
+                        "lastTransitionTime": "2026-11-02T15:15:04Z",
                         "observedGeneration": 1,
                         "status": "True",
                         "type": "Ready"
                     },
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2026-11-02T15:12:29Z",
+                        "lastTransitionTime": "2026-11-02T15:15:04Z",
                         "observedGeneration": 1,
                         "status": "True",
                         "type": "ContainersReady"
                     },
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2026-11-02T15:12:22Z",
+                        "lastTransitionTime": "2026-11-02T15:14:58Z",
                         "observedGeneration": 1,
                         "status": "True",
                         "type": "PodScheduled"
@@ -1008,7 +1008,7 @@
                             "cpu": "50m",
                             "memory": "64Mi"
                         },
-                        "containerID": "containerd://eba477b6916483995a94446e62737aac788e6c9b72d9d8d93fd4b2a2bae63f44",
+                        "containerID": "containerd://09a114475b9aed0a73e68cfa822aedc00f73431ba19be6ac43ecdef7f380acd2",
                         "image": "docker.io/lab/db-app:v1",
                         "imageID": "docker.io/library/import-2026-11-02@sha256:9027889749c368c0adc6db023a7c3389b883c12891d7b97a289c54876eaefcdf",
                         "lastState": {},
@@ -1028,7 +1028,7 @@
                         "started": true,
                         "state": {
                             "running": {
-                                "startedAt": "2026-11-02T15:12:23Z"
+                                "startedAt": "2026-11-02T15:14:59Z"
                             }
                         },
                         "user": {
@@ -1043,7 +1043,7 @@
                         "volumeMounts": [
                             {
                                 "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
-                                "name": "kube-api-access-r88bs",
+                                "name": "kube-api-access-n55rr",
                                 "readOnly": true,
                                 "recursiveReadOnly": "Disabled"
                             }
@@ -1058,10 +1058,10 @@
                 ],
                 "observedGeneration": 1,
                 "phase": "Running",
-                "podIP": "10.244.1.29",
+                "podIP": "10.244.1.34",
                 "podIPs": [
                     {
-                        "ip": "10.244.1.29"
+                        "ip": "10.244.1.34"
                     }
                 ],
                 "qosClass": "Burstable",
@@ -1075,7 +1075,7 @@
                         "memory": "64Mi"
                     }
                 },
-                "startTime": "2026-11-02T15:12:22Z"
+                "startTime": "2026-11-02T15:14:58Z"
             }
         },
         {
@@ -1362,7 +1362,7 @@
             "apiVersion": "v1",
             "kind": "Pod",
             "metadata": {
-                "creationTimestamp": "2026-11-02T15:00:29Z",
+                "creationTimestamp": "2026-11-02T15:14:10Z",
                 "generateName": "postgres-86b7d7586f-",
                 "generation": 1,
                 "labels": {
@@ -1370,7 +1370,7 @@
                     "part-of": "docksentinel-lab",
                     "pod-template-hash": "86b7d7586f"
                 },
-                "name": "postgres-86b7d7586f-drdqp",
+                "name": "postgres-86b7d7586f-gn2lb",
                 "namespace": "lab",
                 "ownerReferences": [
                     {
@@ -1382,8 +1382,8 @@
                         "uid": "7d719894-38e2-4a39-9741-862796f7827f"
                     }
                 ],
-                "resourceVersion": "1051",
-                "uid": "6ed3d94b-e1c9-49cd-a5a2-70c147a62b0b"
+                "resourceVersion": "3502",
+                "uid": "313d9ea9-340c-4d94-94ba-d2650c1013fe"
             },
             "spec": {
                 "containers": [
@@ -1455,7 +1455,7 @@
                             },
                             {
                                 "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
-                                "name": "kube-api-access-jxlr4",
+                                "name": "kube-api-access-n7xsz",
                                 "readOnly": true
                             }
                         ]
@@ -1492,7 +1492,7 @@
                         "name": "data"
                     },
                     {
-                        "name": "kube-api-access-jxlr4",
+                        "name": "kube-api-access-n7xsz",
                         "projected": {
                             "defaultMode": 420,
                             "sources": [
@@ -1539,35 +1539,35 @@
                 "conditions": [
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2026-11-02T15:00:29Z",
+                        "lastTransitionTime": "2026-11-02T15:14:10Z",
                         "observedGeneration": 1,
                         "status": "True",
                         "type": "PodReadyToStartContainers"
                     },
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2026-11-02T15:00:29Z",
+                        "lastTransitionTime": "2026-11-02T15:14:10Z",
                         "observedGeneration": 1,
                         "status": "True",
                         "type": "Initialized"
                     },
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2026-11-02T15:00:40Z",
+                        "lastTransitionTime": "2026-11-02T15:14:21Z",
                         "observedGeneration": 1,
                         "status": "True",
                         "type": "Ready"
                     },
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2026-11-02T15:00:40Z",
+                        "lastTransitionTime": "2026-11-02T15:14:21Z",
                         "observedGeneration": 1,
                         "status": "True",
                         "type": "ContainersReady"
                     },
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2026-11-02T15:00:29Z",
+                        "lastTransitionTime": "2026-11-02T15:14:10Z",
                         "observedGeneration": 1,
                         "status": "True",
                         "type": "PodScheduled"
@@ -1579,7 +1579,7 @@
                             "cpu": "50m",
                             "memory": "100Mi"
                         },
-                        "containerID": "containerd://bd8fec8e9c37c0a00d15bc8ebab078b2c1da08c0a058a0f45ef38bdb57039fdc",
+                        "containerID": "containerd://65f78b48c7b3627f244387910409c4561b9af28b97c01fb8c172ef64a52b0cd8",
                         "image": "docker.io/library/postgres:16-alpine",
                         "imageID": "docker.io/library/import-2026-11-02@sha256:850f8280ace7eab7318a3da03bfb94cc4ceaee6566beea6eb4f30059c1fbcaa2",
                         "lastState": {},
@@ -1599,7 +1599,7 @@
                         "started": true,
                         "state": {
                             "running": {
-                                "startedAt": "2026-11-02T15:00:29Z"
+                                "startedAt": "2026-11-02T15:14:10Z"
                             }
                         },
                         "user": {
@@ -1628,7 +1628,7 @@
                             },
                             {
                                 "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
-                                "name": "kube-api-access-jxlr4",
+                                "name": "kube-api-access-n7xsz",
                                 "readOnly": true,
                                 "recursiveReadOnly": "Disabled"
                             }
@@ -1643,10 +1643,10 @@
                 ],
                 "observedGeneration": 1,
                 "phase": "Running",
-                "podIP": "10.244.1.2",
+                "podIP": "10.244.1.32",
                 "podIPs": [
                     {
-                        "ip": "10.244.1.2"
+                        "ip": "10.244.1.32"
                     }
                 ],
                 "qosClass": "Burstable",
@@ -1660,7 +1660,7 @@
                         "memory": "100Mi"
                     }
                 },
-                "startTime": "2026-11-02T15:00:29Z"
+                "startTime": "2026-11-02T15:14:10Z"
             }
         }
     ],

@@ -133,6 +133,132 @@
                 "annotations": {
                     "deployment.kubernetes.io/desired-replicas": "1",
                     "deployment.kubernetes.io/max-replicas": "2",
+                    "deployment.kubernetes.io/revision": "14"
+                },
+                "creationTimestamp": "2026-11-02T15:15:04Z",
+                "generation": 1,
+                "labels": {
+                    "app": "db-app",
+                    "docksentinel.io/enabled": "true",
+                    "part-of": "docksentinel-lab",
+                    "pod-template-hash": "654959d6b5"
+                },
+                "name": "db-app-654959d6b5",
+                "namespace": "lab",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "Deployment",
+                        "name": "db-app",
+                        "uid": "508cc74c-9a4f-4140-a923-a0c2d4fcbb35"
+                    }
+                ],
+                "resourceVersion": "3673",
+                "uid": "d38e1d0b-086d-449a-9fcd-3a246bef7350"
+            },
+            "spec": {
+                "replicas": 1,
+                "selector": {
+                    "matchLabels": {
+                        "app": "db-app",
+                        "pod-template-hash": "654959d6b5"
+                    }
+                },
+                "template": {
+                    "metadata": {
+                        "annotations": {
+                            "kubectl.kubernetes.io/restartedAt": "2026-11-02T20:45:04+05:30"
+                        },
+                        "labels": {
+                            "app": "db-app",
+                            "docksentinel.io/enabled": "true",
+                            "part-of": "docksentinel-lab",
+                            "pod-template-hash": "654959d6b5"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "env": [
+                                    {
+                                        "name": "DATABASE_URL",
+                                        "valueFrom": {
+                                            "secretKeyRef": {
+                                                "key": "DATABASE_URL",
+                                                "name": "db-creds"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "image": "lab/db-app:v1",
+                                "imagePullPolicy": "IfNotPresent",
+                                "livenessProbe": {
+                                    "failureThreshold": 3,
+                                    "initialDelaySeconds": 30,
+                                    "periodSeconds": 10,
+                                    "successThreshold": 1,
+                                    "tcpSocket": {
+                                        "port": 8080
+                                    },
+                                    "timeoutSeconds": 1
+                                },
+                                "name": "app",
+                                "ports": [
+                                    {
+                                        "containerPort": 8080,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "readinessProbe": {
+                                    "failureThreshold": 3,
+                                    "httpGet": {
+                                        "path": "/healthz",
+                                        "port": 8080,
+                                        "scheme": "HTTP"
+                                    },
+                                    "initialDelaySeconds": 3,
+                                    "periodSeconds": 5,
+                                    "successThreshold": 1,
+                                    "timeoutSeconds": 1
+                                },
+                                "resources": {
+                                    "limits": {
+                                        "cpu": "250m",
+                                        "memory": "128Mi"
+                                    },
+                                    "requests": {
+                                        "cpu": "50m",
+                                        "memory": "64Mi"
+                                    }
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File"
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30
+                    }
+                }
+            },
+            "status": {
+                "fullyLabeledReplicas": 1,
+                "observedGeneration": 1,
+                "replicas": 1,
+                "terminatingReplicas": 0
+            }
+        },
+        {
+            "apiVersion": "apps/v1",
+            "kind": "ReplicaSet",
+            "metadata": {
+                "annotations": {
+                    "deployment.kubernetes.io/desired-replicas": "1",
+                    "deployment.kubernetes.io/max-replicas": "2",
                     "deployment.kubernetes.io/revision": "3"
                 },
                 "creationTimestamp": "2026-11-02T15:03:14Z",
@@ -383,17 +509,17 @@
                 "annotations": {
                     "deployment.kubernetes.io/desired-replicas": "1",
                     "deployment.kubernetes.io/max-replicas": "2",
-                    "deployment.kubernetes.io/revision": "1"
+                    "deployment.kubernetes.io/revision": "13"
                 },
-                "creationTimestamp": "2026-11-02T15:00:29Z",
-                "generation": 2,
+                "creationTimestamp": "2026-11-02T15:14:58Z",
+                "generation": 1,
                 "labels": {
                     "app": "db-app",
                     "docksentinel.io/enabled": "true",
                     "part-of": "docksentinel-lab",
-                    "pod-template-hash": "6bf6d964bb"
+                    "pod-template-hash": "6cc5498f97"
                 },
-                "name": "db-app-6bf6d964bb",
+                "name": "db-app-6cc5498f97",
                 "namespace": "lab",
                 "ownerReferences": [
                     {
@@ -405,24 +531,27 @@
                         "uid": "508cc74c-9a4f-4140-a923-a0c2d4fcbb35"
                     }
                 ],
-                "resourceVersion": "1314",
-                "uid": "f1d94655-1768-4522-af4a-e579be06450e"
+                "resourceVersion": "3643",
+                "uid": "ed31255a-86aa-476b-a5aa-5bb59111a74a"
             },
             "spec": {
-                "replicas": 0,
+                "replicas": 1,
                 "selector": {
                     "matchLabels": {
                         "app": "db-app",
-                        "pod-template-hash": "6bf6d964bb"
+                        "pod-template-hash": "6cc5498f97"
                     }
                 },
                 "template": {
                     "metadata": {
+                        "annotations": {
+                            "kubectl.kubernetes.io/restartedAt": "2026-11-02T20:44:58+05:30"
+                        },
                         "labels": {
                             "app": "db-app",
                             "docksentinel.io/enabled": "true",
                             "part-of": "docksentinel-lab",
-                            "pod-template-hash": "6bf6d964bb"
+                            "pod-template-hash": "6cc5498f97"
                         }
                     },
                     "spec": {
@@ -493,8 +622,11 @@
                 }
             },
             "status": {
-                "observedGeneration": 2,
-                "replicas": 0,
+                "availableReplicas": 1,
+                "fullyLabeledReplicas": 1,
+                "observedGeneration": 1,
+                "readyReplicas": 1,
+                "replicas": 1,
                 "terminatingReplicas": 0
             }
         },
@@ -508,7 +640,7 @@
                     "deployment.kubernetes.io/revision": "10"
                 },
                 "creationTimestamp": "2026-11-02T15:12:29Z",
-                "generation": 1,
+                "generation": 2,
                 "labels": {
                     "app": "db-app",
                     "docksentinel.io/enabled": "true",
@@ -527,11 +659,11 @@
                         "uid": "508cc74c-9a4f-4140-a923-a0c2d4fcbb35"
                     }
                 ],
-                "resourceVersion": "3169",
+                "resourceVersion": "3308",
                 "uid": "02fab2ae-7414-415f-a57f-8437fd4cc75a"
             },
             "spec": {
-                "replicas": 1,
+                "replicas": 0,
                 "selector": {
                     "matchLabels": {
                         "app": "db-app",
@@ -618,9 +750,258 @@
                 }
             },
             "status": {
-                "fullyLabeledReplicas": 1,
-                "observedGeneration": 1,
-                "replicas": 1,
+                "observedGeneration": 2,
+                "replicas": 0,
+                "terminatingReplicas": 0
+            }
+        },
+        {
+            "apiVersion": "apps/v1",
+            "kind": "ReplicaSet",
+            "metadata": {
+                "annotations": {
+                    "deployment.kubernetes.io/desired-replicas": "1",
+                    "deployment.kubernetes.io/max-replicas": "2",
+                    "deployment.kubernetes.io/revision": "11"
+                },
+                "creationTimestamp": "2026-11-02T15:13:02Z",
+                "generation": 2,
+                "labels": {
+                    "app": "db-app",
+                    "docksentinel.io/enabled": "true",
+                    "part-of": "docksentinel-lab",
+                    "pod-template-hash": "7455b49c45"
+                },
+                "name": "db-app-7455b49c45",
+                "namespace": "lab",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "Deployment",
+                        "name": "db-app",
+                        "uid": "508cc74c-9a4f-4140-a923-a0c2d4fcbb35"
+                    }
+                ],
+                "resourceVersion": "3557",
+                "uid": "bf37f332-1209-4fd3-a91f-179ecebbe6bd"
+            },
+            "spec": {
+                "replicas": 0,
+                "selector": {
+                    "matchLabels": {
+                        "app": "db-app",
+                        "pod-template-hash": "7455b49c45"
+                    }
+                },
+                "template": {
+                    "metadata": {
+                        "annotations": {
+                            "kubectl.kubernetes.io/restartedAt": "2026-11-02T20:43:02+05:30"
+                        },
+                        "labels": {
+                            "app": "db-app",
+                            "docksentinel.io/enabled": "true",
+                            "part-of": "docksentinel-lab",
+                            "pod-template-hash": "7455b49c45"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "env": [
+                                    {
+                                        "name": "DATABASE_URL",
+                                        "valueFrom": {
+                                            "secretKeyRef": {
+                                                "key": "DATABASE_URL",
+                                                "name": "db-creds"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "image": "lab/db-app:v1",
+                                "imagePullPolicy": "IfNotPresent",
+                                "livenessProbe": {
+                                    "failureThreshold": 3,
+                                    "initialDelaySeconds": 30,
+                                    "periodSeconds": 10,
+                                    "successThreshold": 1,
+                                    "tcpSocket": {
+                                        "port": 8080
+                                    },
+                                    "timeoutSeconds": 1
+                                },
+                                "name": "app",
+                                "ports": [
+                                    {
+                                        "containerPort": 8080,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "readinessProbe": {
+                                    "failureThreshold": 3,
+                                    "httpGet": {
+                                        "path": "/healthz",
+                                        "port": 8080,
+                                        "scheme": "HTTP"
+                                    },
+                                    "initialDelaySeconds": 3,
+                                    "periodSeconds": 5,
+                                    "successThreshold": 1,
+                                    "timeoutSeconds": 1
+                                },
+                                "resources": {
+                                    "limits": {
+                                        "cpu": "250m",
+                                        "memory": "128Mi"
+                                    },
+                                    "requests": {
+                                        "cpu": "50m",
+                                        "memory": "64Mi"
+                                    }
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File"
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30
+                    }
+                }
+            },
+            "status": {
+                "observedGeneration": 2,
+                "replicas": 0,
+                "terminatingReplicas": 0
+            }
+        },
+        {
+            "apiVersion": "apps/v1",
+            "kind": "ReplicaSet",
+            "metadata": {
+                "annotations": {
+                    "deployment.kubernetes.io/desired-replicas": "1",
+                    "deployment.kubernetes.io/max-replicas": "2",
+                    "deployment.kubernetes.io/revision": "12"
+                },
+                "creationTimestamp": "2026-11-02T15:14:21Z",
+                "generation": 2,
+                "labels": {
+                    "app": "db-app",
+                    "docksentinel.io/enabled": "true",
+                    "part-of": "docksentinel-lab",
+                    "pod-template-hash": "7658686d57"
+                },
+                "name": "db-app-7658686d57",
+                "namespace": "lab",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "Deployment",
+                        "name": "db-app",
+                        "uid": "508cc74c-9a4f-4140-a923-a0c2d4fcbb35"
+                    }
+                ],
+                "resourceVersion": "3661",
+                "uid": "4aef3b40-e6f9-4bbd-8f76-3caa8ea460d0"
+            },
+            "spec": {
+                "replicas": 0,
+                "selector": {
+                    "matchLabels": {
+                        "app": "db-app",
+                        "pod-template-hash": "7658686d57"
+                    }
+                },
+                "template": {
+                    "metadata": {
+                        "annotations": {
+                            "kubectl.kubernetes.io/restartedAt": "2026-11-02T20:44:21+05:30"
+                        },
+                        "labels": {
+                            "app": "db-app",
+                            "docksentinel.io/enabled": "true",
+                            "part-of": "docksentinel-lab",
+                            "pod-template-hash": "7658686d57"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "env": [
+                                    {
+                                        "name": "DATABASE_URL",
+                                        "valueFrom": {
+                                            "secretKeyRef": {
+                                                "key": "DATABASE_URL",
+                                                "name": "db-creds"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "image": "lab/db-app:v1",
+                                "imagePullPolicy": "IfNotPresent",
+                                "livenessProbe": {
+                                    "failureThreshold": 3,
+                                    "initialDelaySeconds": 30,
+                                    "periodSeconds": 10,
+                                    "successThreshold": 1,
+                                    "tcpSocket": {
+                                        "port": 8080
+                                    },
+                                    "timeoutSeconds": 1
+                                },
+                                "name": "app",
+                                "ports": [
+                                    {
+                                        "containerPort": 8080,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "readinessProbe": {
+                                    "failureThreshold": 3,
+                                    "httpGet": {
+                                        "path": "/healthz",
+                                        "port": 8080,
+                                        "scheme": "HTTP"
+                                    },
+                                    "initialDelaySeconds": 3,
+                                    "periodSeconds": 5,
+                                    "successThreshold": 1,
+                                    "timeoutSeconds": 1
+                                },
+                                "resources": {
+                                    "limits": {
+                                        "cpu": "250m",
+                                        "memory": "128Mi"
+                                    },
+                                    "requests": {
+                                        "cpu": "50m",
+                                        "memory": "64Mi"
+                                    }
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File"
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30
+                    }
+                }
+            },
+            "status": {
+                "observedGeneration": 2,
+                "replicas": 0,
                 "terminatingReplicas": 0
             }
         },
@@ -884,7 +1265,7 @@
                     "deployment.kubernetes.io/revision": "9"
                 },
                 "creationTimestamp": "2026-11-02T15:12:22Z",
-                "generation": 1,
+                "generation": 2,
                 "labels": {
                     "app": "db-app",
                     "docksentinel.io/enabled": "true",
@@ -903,11 +1284,11 @@
                         "uid": "508cc74c-9a4f-4140-a923-a0c2d4fcbb35"
                     }
                 ],
-                "resourceVersion": "3138",
+                "resourceVersion": "3241",
                 "uid": "02622883-a8bf-4998-9979-14d7a456764f"
             },
             "spec": {
-                "replicas": 1,
+                "replicas": 0,
                 "selector": {
                     "matchLabels": {
                         "app": "db-app",
@@ -994,11 +1375,8 @@
                 }
             },
             "status": {
-                "availableReplicas": 1,
-                "fullyLabeledReplicas": 1,
-                "observedGeneration": 1,
-                "readyReplicas": 1,
-                "replicas": 1,
+                "observedGeneration": 2,
+                "replicas": 0,
                 "terminatingReplicas": 0
             }
         },
@@ -1052,131 +1430,6 @@
                             "docksentinel.io/enabled": "true",
                             "part-of": "docksentinel-lab",
                             "pod-template-hash": "d979fbf74"
-                        }
-                    },
-                    "spec": {
-                        "containers": [
-                            {
-                                "env": [
-                                    {
-                                        "name": "DATABASE_URL",
-                                        "valueFrom": {
-                                            "secretKeyRef": {
-                                                "key": "DATABASE_URL",
-                                                "name": "db-creds"
-                                            }
-                                        }
-                                    }
-                                ],
-                                "image": "lab/db-app:v1",
-                                "imagePullPolicy": "IfNotPresent",
-                                "livenessProbe": {
-                                    "failureThreshold": 3,
-                                    "initialDelaySeconds": 30,
-                                    "periodSeconds": 10,
-                                    "successThreshold": 1,
-                                    "tcpSocket": {
-                                        "port": 8080
-                                    },
-                                    "timeoutSeconds": 1
-                                },
-                                "name": "app",
-                                "ports": [
-                                    {
-                                        "containerPort": 8080,
-                                        "protocol": "TCP"
-                                    }
-                                ],
-                                "readinessProbe": {
-                                    "failureThreshold": 3,
-                                    "httpGet": {
-                                        "path": "/healthz",
-                                        "port": 8080,
-                                        "scheme": "HTTP"
-                                    },
-                                    "initialDelaySeconds": 3,
-                                    "periodSeconds": 5,
-                                    "successThreshold": 1,
-                                    "timeoutSeconds": 1
-                                },
-                                "resources": {
-                                    "limits": {
-                                        "cpu": "250m",
-                                        "memory": "128Mi"
-                                    },
-                                    "requests": {
-                                        "cpu": "50m",
-                                        "memory": "64Mi"
-                                    }
-                                },
-                                "terminationMessagePath": "/dev/termination-log",
-                                "terminationMessagePolicy": "File"
-                            }
-                        ],
-                        "dnsPolicy": "ClusterFirst",
-                        "restartPolicy": "Always",
-                        "schedulerName": "default-scheduler",
-                        "securityContext": {},
-                        "terminationGracePeriodSeconds": 30
-                    }
-                }
-            },
-            "status": {
-                "observedGeneration": 2,
-                "replicas": 0,
-                "terminatingReplicas": 0
-            }
-        },
-        {
-            "apiVersion": "apps/v1",
-            "kind": "ReplicaSet",
-            "metadata": {
-                "annotations": {
-                    "deployment.kubernetes.io/desired-replicas": "1",
-                    "deployment.kubernetes.io/max-replicas": "2",
-                    "deployment.kubernetes.io/revision": "2"
-                },
-                "creationTimestamp": "2026-11-02T15:02:25Z",
-                "generation": 2,
-                "labels": {
-                    "app": "db-app",
-                    "docksentinel.io/enabled": "true",
-                    "part-of": "docksentinel-lab",
-                    "pod-template-hash": "f485f97c8"
-                },
-                "name": "db-app-f485f97c8",
-                "namespace": "lab",
-                "ownerReferences": [
-                    {
-                        "apiVersion": "apps/v1",
-                        "blockOwnerDeletion": true,
-                        "controller": true,
-                        "kind": "Deployment",
-                        "name": "db-app",
-                        "uid": "508cc74c-9a4f-4140-a923-a0c2d4fcbb35"
-                    }
-                ],
-                "resourceVersion": "1600",
-                "uid": "fe26ea5c-c620-4133-be59-a3d7c928217b"
-            },
-            "spec": {
-                "replicas": 0,
-                "selector": {
-                    "matchLabels": {
-                        "app": "db-app",
-                        "pod-template-hash": "f485f97c8"
-                    }
-                },
-                "template": {
-                    "metadata": {
-                        "annotations": {
-                            "kubectl.kubernetes.io/restartedAt": "2026-11-02T20:32:25+05:30"
-                        },
-                        "labels": {
-                            "app": "db-app",
-                            "docksentinel.io/enabled": "true",
-                            "part-of": "docksentinel-lab",
-                            "pod-template-hash": "f485f97c8"
                         }
                     },
                     "spec": {

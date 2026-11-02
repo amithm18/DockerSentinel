@@ -1,1 +1,1 @@
-Error from server (BadRequest): container "app" in pod "db-app-6cfd86b699-5txwv" is waiting to start: CreateContainerConfigError
+Error from server (BadRequest): container "app" in pod "db-app-654959d6b5-n4fbk" is waiting to start: CreateContainerConfigError

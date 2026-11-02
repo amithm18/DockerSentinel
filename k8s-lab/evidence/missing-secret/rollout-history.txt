@@ -1,7 +1,5 @@
 deployment.apps/db-app 
 REVISION  CHANGE-CAUSE
-1         <none>
-2         <none>
 3         <none>
 4         <none>
 5         <none>
@@ -10,4 +8,8 @@ REVISION  CHANGE-CAUSE
 8         <none>
 9         <none>
 10        <none>
+11        <none>
+12        <none>
+13        <none>
+14        <none>
 

@@ -1,4 +1,4 @@
 scenario: missing-secret
 deployment: db-app
-pod: db-app-6cfd86b699-5txwv
-captured_at: 2026-11-02T15:12:40Z
+pod: db-app-654959d6b5-n4fbk
+captured_at: 2026-11-02T15:15:15Z

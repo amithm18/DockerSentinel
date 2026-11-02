@@ -1,19 +1,19 @@
-Name:             db-app-6cfd86b699-5txwv
+Name:             db-app-654959d6b5-n4fbk
 Namespace:        lab
 Priority:         0
 Service Account:  default
 Node:             docksentinel-worker/172.18.0.3
-Start Time:       Mon, 02 Nov 2026 20:42:29 +0530
+Start Time:       Mon, 02 Nov 2026 20:45:04 +0530
 Labels:           app=db-app
                   docksentinel.io/enabled=true
                   part-of=docksentinel-lab
-                  pod-template-hash=6cfd86b699
-Annotations:      kubectl.kubernetes.io/restartedAt: 2026-11-02T20:42:29+05:30
+                  pod-template-hash=654959d6b5
+Annotations:      kubectl.kubernetes.io/restartedAt: 2026-11-02T20:45:04+05:30
 Status:           Pending
-IP:               10.244.1.30
+IP:               10.244.1.35
 IPs:
-  IP:           10.244.1.30
-Controlled By:  ReplicaSet/db-app-6cfd86b699
+  IP:           10.244.1.35
+Controlled By:  ReplicaSet/db-app-654959d6b5
 Containers:
   app:
     Container ID:   
@@ -36,7 +36,7 @@ Containers:
     Environment:
       DATABASE_URL:  <set to the key 'DATABASE_URL' in secret 'db-creds'>  Optional: false
     Mounts:
-      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-tgv86 (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-47zmg (ro)
 Conditions:
   Type                        Status
   PodReadyToStartContainers   True 
@@ -45,7 +45,7 @@ Conditions:
   ContainersReady             False 
   PodScheduled                True 
 Volumes:
-  kube-api-access-tgv86:
+  kube-api-access-47zmg:
     Type:                    Projected (a volume that contains injected data from multiple sources)
     TokenExpirationSeconds:  3607
     ConfigMapName:           kube-root-ca.crt
@@ -56,8 +56,8 @@ Node-Selectors:              <none>
 Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
                              node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
 Events:
-  Type     Reason     Age               From               Message
-  ----     ------     ----              ----               -------
-  Normal   Scheduled  10s               default-scheduler  Successfully assigned lab/db-app-6cfd86b699-5txwv to docksentinel-worker
-  Normal   Pulled     9s (x2 over 10s)  kubelet            spec.containers{app}: Container image "lab/db-app:v1" already present on machine and can be accessed by the pod
-  Warning  Failed     9s (x2 over 10s)  kubelet            spec.containers{app}: Error: secret "db-creds" not found
+  Type     Reason     Age                From               Message
+  ----     ------     ----               ----               -------
+  Normal   Scheduled  11s                default-scheduler  Successfully assigned lab/db-app-654959d6b5-n4fbk to docksentinel-worker
+  Normal   Pulled     10s (x2 over 10s)  kubelet            spec.containers{app}: Container image "lab/db-app:v1" already present on machine and can be accessed by the pod
+  Warning  Failed     10s (x2 over 10s)  kubelet            spec.containers{app}: Error: secret "db-creds" not found

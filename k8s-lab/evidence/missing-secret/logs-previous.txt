@@ -1,1 +1,1 @@
-Error from server (BadRequest): previous terminated container "app" in pod "db-app-6cfd86b699-5txwv" not found
+Error from server (BadRequest): previous terminated container "app" in pod "db-app-654959d6b5-n4fbk" not found

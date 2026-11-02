@@ -3,18 +3,18 @@
     "kind": "Deployment",
     "metadata": {
         "annotations": {
-            "deployment.kubernetes.io/revision": "10",
+            "deployment.kubernetes.io/revision": "14",
             "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"db-app\",\"part-of\":\"docksentinel-lab\"},\"name\":\"db-app\",\"namespace\":\"lab\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"app\":\"db-app\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"db-app\",\"docksentinel.io/enabled\":\"true\",\"part-of\":\"docksentinel-lab\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"DATABASE_URL\",\"valueFrom\":{\"secretKeyRef\":{\"key\":\"DATABASE_URL\",\"name\":\"db-creds\"}}}],\"image\":\"lab/db-app:v1\",\"imagePullPolicy\":\"IfNotPresent\",\"livenessProbe\":{\"initialDelaySeconds\":30,\"periodSeconds\":10,\"tcpSocket\":{\"port\":8080}},\"name\":\"app\",\"ports\":[{\"containerPort\":8080}],\"readinessProbe\":{\"httpGet\":{\"path\":\"/healthz\",\"port\":8080},\"initialDelaySeconds\":3,\"periodSeconds\":5},\"resources\":{\"limits\":{\"cpu\":\"250m\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"50m\",\"memory\":\"64Mi\"}}}]}}}}\n"
         },
         "creationTimestamp": "2026-11-02T15:00:29Z",
-        "generation": 10,
+        "generation": 14,
         "labels": {
             "app": "db-app",
             "part-of": "docksentinel-lab"
         },
         "name": "db-app",
         "namespace": "lab",
-        "resourceVersion": "3172",
+        "resourceVersion": "3675",
         "uid": "508cc74c-9a4f-4140-a923-a0c2d4fcbb35"
     },
     "spec": {
@@ -36,7 +36,7 @@
         "template": {
             "metadata": {
                 "annotations": {
-                    "kubectl.kubernetes.io/restartedAt": "2026-11-02T20:42:29+05:30"
+                    "kubectl.kubernetes.io/restartedAt": "2026-11-02T20:45:04+05:30"
                 },
                 "labels": {
                     "app": "db-app",
@@ -115,8 +115,8 @@
         "availableReplicas": 1,
         "conditions": [
             {
-                "lastTransitionTime": "2026-11-02T15:00:46Z",
-                "lastUpdateTime": "2026-11-02T15:00:46Z",
+                "lastTransitionTime": "2026-11-02T15:14:27Z",
+                "lastUpdateTime": "2026-11-02T15:14:27Z",
                 "message": "Deployment has minimum availability.",
                 "reason": "MinimumReplicasAvailable",
                 "status": "True",
@@ -124,14 +124,14 @@
             },
             {
                 "lastTransitionTime": "2026-11-02T15:00:29Z",
-                "lastUpdateTime": "2026-11-02T15:12:29Z",
-                "message": "ReplicaSet \"db-app-6cfd86b699\" is progressing.",
+                "lastUpdateTime": "2026-11-02T15:15:04Z",
+                "message": "ReplicaSet \"db-app-654959d6b5\" is progressing.",
                 "reason": "ReplicaSetUpdated",
                 "status": "True",
                 "type": "Progressing"
             }
         ],
-        "observedGeneration": 10,
+        "observedGeneration": 14,
         "readyReplicas": 1,
         "replicas": 2,
         "terminatingReplicas": 0,
