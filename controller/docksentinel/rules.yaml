@@ -1,0 +1,71 @@
+# DockSentinel diagnosis rules.
+# Rules are checked top to bottom; the first rule whose conditions ALL match wins.
+#
+# Conditions (all optional):
+#   waiting_reason_in : list  - container's current waiting reason
+#   last_reason_in    : list  - reason of the container's last termination
+#   exit_code_in      : list  - exit code of the last termination
+#   log_contains_any  : list  - any of these strings appears in the recent logs
+#   new_revision      : bool  - the pod belongs to a revision newer than the last
+#                               revision DockSentinel verified as healthy
+#
+# action: raise_memory | rollback | restart | report
+# Text fields may use {placeholders} filled from the incident.
+
+rules:
+  - name: out_of_memory
+    when:
+      last_reason_in: [OOMKilled]
+    cause: "Container ran out of memory (limit {memory_limit})"
+    explanation: "Kubernetes killed the container with OOMKilled (exit code 137)."
+    action: raise_memory
+    fix_hint: "Raise resources.limits.memory, or fix a memory leak if usage keeps growing."
+
+  - name: bad_image
+    when:
+      waiting_reason_in: [ImagePullBackOff, ErrImagePull, InvalidImageName]
+    cause: "Image '{image}' cannot be pulled"
+    explanation: "The image tag does not exist or the registry is unreachable."
+    action: rollback
+    fix_hint: "Check the image name and tag, and that it was pushed to the registry."
+
+  - name: missing_config
+    when:
+      waiting_reason_in: [CreateContainerConfigError]
+    cause: "Missing configuration: {waiting_message}"
+    explanation: "A Secret or ConfigMap the pod needs does not exist."
+    action: report
+    fix_hint: "Create the missing Secret/ConfigMap (kubectl create secret ...) and the pod will start."
+
+  - name: dependency_down
+    when:
+      log_contains_any: ["ECONNREFUSED", "Connection refused", "could not connect to server"]
+    cause: "A dependency (database/API) is unreachable"
+    explanation: "The application logs show refused connections to another service."
+    action: report
+    fix_hint: "Check that the database/service is running and its Service name and port are correct."
+
+  - name: bad_release
+    when:
+      waiting_reason_in: [CrashLoopBackOff, RunContainerError, CreateContainerError]
+      new_revision: true
+    cause: "New release (revision {revision}) crashes on start"
+    explanation: "Pods of the newest revision keep crashing while the previous revision was healthy."
+    action: rollback
+    fix_hint: "Inspect the logs of the new version, fix it and redeploy."
+
+  - name: missing_module_or_command
+    when:
+      log_contains_any: ["Cannot find module", "ModuleNotFoundError", "exec format error", "not found"]
+    cause: "Application code or start command is broken"
+    explanation: "The logs show a missing module/file or an invalid start command."
+    action: report
+    fix_hint: "Fix the code or the container command; restarting will not help."
+
+  - name: crash_loop
+    when:
+      waiting_reason_in: [CrashLoopBackOff]
+    cause: "Application keeps crashing (exit code {last_exit_code})"
+    explanation: "No known pattern matched; the container exits repeatedly."
+    action: report
+    fix_hint: "Read the logs below to find the error in the application."

@@ -1,0 +1,69 @@
+# Installs the DockSentinel controller inside a cluster (watches all namespaces,
+# acts only on Deployments labelled docksentinel.io/enabled=true).
+#   docker build -t docksentinel:0.1.0 .
+#   kind load docker-image docksentinel:0.1.0 --name docksentinel
+#   kubectl apply -f deploy/install.yaml
+#   kubectl -n docksentinel logs -f deploy/docksentinel
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: docksentinel
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: docksentinel
+  namespace: docksentinel
+---
+# Least privilege: read pods/logs/ReplicaSets, read+patch Deployments. Nothing else.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: docksentinel
+rules:
+  - apiGroups: [""]
+    resources: [pods, pods/log, events]
+    verbs: [get, list, watch]
+  - apiGroups: [apps]
+    resources: [replicasets]
+    verbs: [get, list, watch]
+  - apiGroups: [apps]
+    resources: [deployments]
+    verbs: [get, list, watch, patch]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: docksentinel
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: docksentinel
+subjects:
+  - kind: ServiceAccount
+    name: docksentinel
+    namespace: docksentinel
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docksentinel
+  namespace: docksentinel
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: docksentinel}}
+  template:
+    metadata: {labels: {app: docksentinel}}
+    spec:
+      serviceAccountName: docksentinel
+      containers:
+        - name: controller
+          image: docksentinel:0.1.0
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests: {memory: "64Mi", cpu: "20m"}
+            limits: {memory: "128Mi", cpu: "200m"}
+          volumeMounts: [{name: data, mountPath: /data}]
+      volumes:
+        - name: data
+          emptyDir: {}   # MVP: incident DB lives with the pod; use a PVC later

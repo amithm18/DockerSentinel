@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "docksentinel"
+version = "0.1.0"
+description = "Kubernetes failure diagnosis and verified self-healing controller (MVP)"
+requires-python = ">=3.10"
+dependencies = [
+    "kubernetes>=29.0",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+docksentinel = "docksentinel.cli:main"
+
+[tool.setuptools]
+packages = ["docksentinel"]
+
+[tool.setuptools.package-data]
+docksentinel = ["rules.yaml"]
