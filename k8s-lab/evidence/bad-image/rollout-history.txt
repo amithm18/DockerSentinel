@@ -1,0 +1,6 @@
+deployment.apps/bad-release 
+REVISION  CHANGE-CAUSE
+2         v2 release
+3         v1 initial
+4         v3 release (bad tag)
+

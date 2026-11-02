@@ -1,0 +1,73 @@
+Name:             memory-hog-79d6b86656-r89gj
+Namespace:        lab
+Priority:         0
+Service Account:  default
+Node:             docksentinel-worker/172.18.0.3
+Start Time:       Mon, 02 Nov 2026 20:39:30 +0530
+Labels:           app=memory-hog
+                  docksentinel.io/enabled=true
+                  part-of=docksentinel-lab
+                  pod-template-hash=79d6b86656
+Annotations:      kubectl.kubernetes.io/restartedAt: 2026-11-02T20:38:14+05:30
+Status:           Running
+IP:               10.244.1.23
+IPs:
+  IP:           10.244.1.23
+Controlled By:  ReplicaSet/memory-hog-79d6b86656
+Containers:
+  app:
+    Container ID:   containerd://69d0c832df81e473e27188b042ec650cff43a0d18fb23ad6856aecd72a82d788
+    Image:          lab/memory-hog:v1
+    Image ID:       docker.io/library/import-2026-11-02@sha256:b3a0eeff7e868a14dd9f15655d862af5712abd1c8712549e68b7bfa462a4425c
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 02 Nov 2026 20:40:40 +0530
+    Last State:     Terminated
+      Reason:       OOMKilled
+      Exit Code:    137
+      Started:      Mon, 02 Nov 2026 20:40:00 +0530
+      Finished:     Mon, 02 Nov 2026 20:40:30 +0530
+    Ready:          False
+    Restart Count:  2
+    Limits:
+      cpu:     250m
+      memory:  128Mi
+    Requests:
+      cpu:      50m
+      memory:   64Mi
+    Liveness:   tcp-socket :8080 delay=30s timeout=1s period=10s successThreshold=1 failureThreshold=3
+    Readiness:  http-get http://:8080/healthz delay=3s timeout=1s period=5s successThreshold=1 failureThreshold=3
+    Environment:
+      MODE:            leak
+      WORKING_SET_MB:  30
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-z6xgj (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-z6xgj:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                From               Message
+  ----     ------     ----               ----               -------
+  Normal   Scheduled  71s                default-scheduler  Successfully assigned lab/memory-hog-79d6b86656-r89gj to docksentinel-worker
+  Warning  Unhealthy  41s                kubelet            spec.containers{app}: Readiness probe failed: Get "http://10.244.1.23:8080/healthz": dial tcp 10.244.1.23:8080: connect: connection refused
+  Warning  Unhealthy  11s (x2 over 41s)  kubelet            spec.containers{app}: Liveness probe failed: dial tcp 10.244.1.23:8080: connect: connection refused
+  Warning  BackOff    10s (x2 over 11s)  kubelet            spec.containers{app}: Back-off restarting failed container app in pod memory-hog-79d6b86656-r89gj_lab(9bb4edff-ba64-4b2f-a24b-4dd9f01ccc1e)
+  Normal   Pulled     1s (x3 over 71s)   kubelet            spec.containers{app}: Container image "lab/memory-hog:v1" already present on machine and can be accessed by the pod
+  Normal   Created    1s (x3 over 71s)   kubelet            spec.containers{app}: Container created
+  Normal   Started    1s (x3 over 71s)   kubelet            spec.containers{app}: Container started

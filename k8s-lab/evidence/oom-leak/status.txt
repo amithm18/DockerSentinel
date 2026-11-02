@@ -1,0 +1,6 @@
+POD                            PHASE     READY   RESTARTS   WAITING   LAST_TERMINATED   EXIT     IMAGE
+bad-release-6946877686-68hn5   Running   true    0          <none>    <none>            <none>   lab/bad-release:v1
+bad-release-6946877686-wf68z   Running   true    0          <none>    <none>            <none>   lab/bad-release:v1
+db-app-548788fb59-qxkj5        Running   true    0          <none>    <none>            <none>   lab/db-app:v1
+memory-hog-79d6b86656-r89gj    Running   false   2          <none>    OOMKilled         137      lab/memory-hog:v1
+postgres-86b7d7586f-drdqp      Running   true    0          <none>    <none>            <none>   postgres:16-alpine

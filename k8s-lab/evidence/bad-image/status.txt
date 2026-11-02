@@ -1,0 +1,7 @@
+POD                            PHASE     READY   RESTARTS   WAITING            LAST_TERMINATED   EXIT     IMAGE
+bad-release-59ff9f875b-jh6z4   Pending   false   0          ImagePullBackOff   <none>            <none>   lab/bad-release:v3
+bad-release-6946877686-68hn5   Running   true    0          <none>             <none>            <none>   lab/bad-release:v1
+bad-release-6946877686-wf68z   Running   true    0          <none>             <none>            <none>   lab/bad-release:v1
+db-app-d979fbf74-9nxh5         Running   true    0          <none>             <none>            <none>   lab/db-app:v1
+memory-hog-775784cbcc-w4btt    Running   true    0          <none>             <none>            <none>   lab/memory-hog:v1
+postgres-86b7d7586f-drdqp      Running   true    0          <none>             <none>            <none>   postgres:16-alpine

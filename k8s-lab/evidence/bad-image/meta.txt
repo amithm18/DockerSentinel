@@ -1,0 +1,4 @@
+scenario: bad-image
+deployment: bad-release
+pod: bad-release-59ff9f875b-jh6z4
+captured_at: 2026-11-02T15:12:02Z

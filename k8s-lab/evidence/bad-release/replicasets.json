@@ -1,0 +1,237 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "apps/v1",
+            "kind": "ReplicaSet",
+            "metadata": {
+                "annotations": {
+                    "deployment.kubernetes.io/desired-replicas": "2",
+                    "deployment.kubernetes.io/max-replicas": "3",
+                    "deployment.kubernetes.io/revision": "2",
+                    "kubernetes.io/change-cause": "v2 release"
+                },
+                "creationTimestamp": "2026-11-02T15:11:08Z",
+                "generation": 1,
+                "labels": {
+                    "app": "bad-release",
+                    "docksentinel.io/enabled": "true",
+                    "part-of": "docksentinel-lab",
+                    "pod-template-hash": "5869ccb4f7"
+                },
+                "name": "bad-release-5869ccb4f7",
+                "namespace": "lab",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "Deployment",
+                        "name": "bad-release",
+                        "uid": "b2ac0115-7408-4859-87fd-cc955087a5bf"
+                    }
+                ],
+                "resourceVersion": "2861",
+                "uid": "3fd5749e-8957-4ddc-ace7-e2cf218ef818"
+            },
+            "spec": {
+                "replicas": 1,
+                "selector": {
+                    "matchLabels": {
+                        "app": "bad-release",
+                        "pod-template-hash": "5869ccb4f7"
+                    }
+                },
+                "template": {
+                    "metadata": {
+                        "labels": {
+                            "app": "bad-release",
+                            "docksentinel.io/enabled": "true",
+                            "part-of": "docksentinel-lab",
+                            "pod-template-hash": "5869ccb4f7"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "image": "lab/bad-release:v2",
+                                "imagePullPolicy": "IfNotPresent",
+                                "livenessProbe": {
+                                    "failureThreshold": 3,
+                                    "initialDelaySeconds": 30,
+                                    "periodSeconds": 10,
+                                    "successThreshold": 1,
+                                    "tcpSocket": {
+                                        "port": 8080
+                                    },
+                                    "timeoutSeconds": 1
+                                },
+                                "name": "app",
+                                "ports": [
+                                    {
+                                        "containerPort": 8080,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "readinessProbe": {
+                                    "failureThreshold": 3,
+                                    "httpGet": {
+                                        "path": "/healthz",
+                                        "port": 8080,
+                                        "scheme": "HTTP"
+                                    },
+                                    "initialDelaySeconds": 3,
+                                    "periodSeconds": 5,
+                                    "successThreshold": 1,
+                                    "timeoutSeconds": 1
+                                },
+                                "resources": {
+                                    "limits": {
+                                        "cpu": "250m",
+                                        "memory": "128Mi"
+                                    },
+                                    "requests": {
+                                        "cpu": "50m",
+                                        "memory": "64Mi"
+                                    }
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File"
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30
+                    }
+                }
+            },
+            "status": {
+                "fullyLabeledReplicas": 1,
+                "observedGeneration": 1,
+                "replicas": 1,
+                "terminatingReplicas": 0
+            }
+        },
+        {
+            "apiVersion": "apps/v1",
+            "kind": "ReplicaSet",
+            "metadata": {
+                "annotations": {
+                    "deployment.kubernetes.io/desired-replicas": "2",
+                    "deployment.kubernetes.io/max-replicas": "3",
+                    "deployment.kubernetes.io/revision": "1",
+                    "kubernetes.io/change-cause": "v1 initial"
+                },
+                "creationTimestamp": "2026-11-02T15:03:39Z",
+                "generation": 1,
+                "labels": {
+                    "app": "bad-release",
+                    "docksentinel.io/enabled": "true",
+                    "part-of": "docksentinel-lab",
+                    "pod-template-hash": "6946877686"
+                },
+                "name": "bad-release-6946877686",
+                "namespace": "lab",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "Deployment",
+                        "name": "bad-release",
+                        "uid": "b2ac0115-7408-4859-87fd-cc955087a5bf"
+                    }
+                ],
+                "resourceVersion": "1585",
+                "uid": "98b644b6-82d1-467a-b535-4c016d6450bb"
+            },
+            "spec": {
+                "replicas": 2,
+                "selector": {
+                    "matchLabels": {
+                        "app": "bad-release",
+                        "pod-template-hash": "6946877686"
+                    }
+                },
+                "template": {
+                    "metadata": {
+                        "labels": {
+                            "app": "bad-release",
+                            "docksentinel.io/enabled": "true",
+                            "part-of": "docksentinel-lab",
+                            "pod-template-hash": "6946877686"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "image": "lab/bad-release:v1",
+                                "imagePullPolicy": "IfNotPresent",
+                                "livenessProbe": {
+                                    "failureThreshold": 3,
+                                    "initialDelaySeconds": 30,
+                                    "periodSeconds": 10,
+                                    "successThreshold": 1,
+                                    "tcpSocket": {
+                                        "port": 8080
+                                    },
+                                    "timeoutSeconds": 1
+                                },
+                                "name": "app",
+                                "ports": [
+                                    {
+                                        "containerPort": 8080,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "readinessProbe": {
+                                    "failureThreshold": 3,
+                                    "httpGet": {
+                                        "path": "/healthz",
+                                        "port": 8080,
+                                        "scheme": "HTTP"
+                                    },
+                                    "initialDelaySeconds": 3,
+                                    "periodSeconds": 5,
+                                    "successThreshold": 1,
+                                    "timeoutSeconds": 1
+                                },
+                                "resources": {
+                                    "limits": {
+                                        "cpu": "250m",
+                                        "memory": "128Mi"
+                                    },
+                                    "requests": {
+                                        "cpu": "50m",
+                                        "memory": "64Mi"
+                                    }
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File"
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30
+                    }
+                }
+            },
+            "status": {
+                "availableReplicas": 2,
+                "fullyLabeledReplicas": 2,
+                "observedGeneration": 1,
+                "readyReplicas": 2,
+                "replicas": 2,
+                "terminatingReplicas": 0
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": ""
+    }
+}

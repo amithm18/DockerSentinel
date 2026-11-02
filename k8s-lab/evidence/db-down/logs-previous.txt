@@ -1,0 +1,12 @@
+[db-app] listening on 8080
+[db-app] database check failed (1/3): ECONNREFUSED connect ECONNREFUSED 10.96.170.22:5432
+[db-app] database check failed (2/3): ECONNREFUSED connect ECONNREFUSED 10.96.170.22:5432
+[db-app] database check failed (3/3): ECONNREFUSED connect ECONNREFUSED 10.96.170.22:5432
+[db-app] giving up, last error: Error: connect ECONNREFUSED 10.96.170.22:5432
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1638:16) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.96.170.22',
+  port: 5432
+}

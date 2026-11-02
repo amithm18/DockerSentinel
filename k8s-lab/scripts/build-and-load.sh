@@ -26,7 +26,7 @@ done
 # "content digest ... not found". Export just our platform and load the archive.
 TMP_TAR="$(mktemp --suffix=.tar)"
 trap 'rm -f "$TMP_TAR"' EXIT
-docker save --platform linux/amd64 postgres:16-alpine -o "$TMP_TAR"
+docker save --platform "linux/$(docker version -f "{{.Server.Arch}}")" postgres:16-alpine -o "$TMP_TAR"
 kind load image-archive "$TMP_TAR" --name "$CLUSTER"
 
 echo "==> Done. Images on the worker node:"

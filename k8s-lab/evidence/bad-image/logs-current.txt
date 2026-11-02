@@ -1,0 +1,1 @@
+Error from server (BadRequest): container "app" in pod "bad-release-59ff9f875b-jh6z4" is waiting to start: trying and failing to pull image

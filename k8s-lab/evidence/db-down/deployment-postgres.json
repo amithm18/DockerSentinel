@@ -1,0 +1,150 @@
+{
+    "apiVersion": "apps/v1",
+    "kind": "Deployment",
+    "metadata": {
+        "annotations": {
+            "deployment.kubernetes.io/revision": "1",
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"postgres\",\"part-of\":\"docksentinel-lab\"},\"name\":\"postgres\",\"namespace\":\"lab\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"app\":\"postgres\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"postgres\",\"part-of\":\"docksentinel-lab\"}},\"spec\":{\"containers\":[{\"envFrom\":[{\"secretRef\":{\"name\":\"postgres-secret\"}}],\"image\":\"postgres:16-alpine\",\"imagePullPolicy\":\"IfNotPresent\",\"livenessProbe\":{\"exec\":{\"command\":[\"pg_isready\",\"-U\",\"lab\",\"-d\",\"labdb\"]},\"initialDelaySeconds\":30,\"periodSeconds\":10},\"name\":\"postgres\",\"ports\":[{\"containerPort\":5432}],\"readinessProbe\":{\"exec\":{\"command\":[\"pg_isready\",\"-U\",\"lab\",\"-d\",\"labdb\"]},\"initialDelaySeconds\":5,\"periodSeconds\":5},\"resources\":{\"limits\":{\"cpu\":\"250m\",\"memory\":\"256Mi\"},\"requests\":{\"cpu\":\"50m\",\"memory\":\"100Mi\"}},\"volumeMounts\":[{\"mountPath\":\"/var/lib/postgresql/data\",\"name\":\"data\"}]}],\"volumes\":[{\"emptyDir\":{},\"name\":\"data\"}]}}}}\n"
+        },
+        "creationTimestamp": "2026-11-02T15:00:29Z",
+        "generation": 2,
+        "labels": {
+            "app": "postgres",
+            "part-of": "docksentinel-lab"
+        },
+        "name": "postgres",
+        "namespace": "lab",
+        "resourceVersion": "3327",
+        "uid": "642a5632-02ef-4d41-8094-18756320d372"
+    },
+    "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 0,
+        "revisionHistoryLimit": 10,
+        "selector": {
+            "matchLabels": {
+                "app": "postgres"
+            }
+        },
+        "strategy": {
+            "rollingUpdate": {
+                "maxSurge": "25%",
+                "maxUnavailable": "25%"
+            },
+            "type": "RollingUpdate"
+        },
+        "template": {
+            "metadata": {
+                "labels": {
+                    "app": "postgres",
+                    "part-of": "docksentinel-lab"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "envFrom": [
+                            {
+                                "secretRef": {
+                                    "name": "postgres-secret"
+                                }
+                            }
+                        ],
+                        "image": "postgres:16-alpine",
+                        "imagePullPolicy": "IfNotPresent",
+                        "livenessProbe": {
+                            "exec": {
+                                "command": [
+                                    "pg_isready",
+                                    "-U",
+                                    "lab",
+                                    "-d",
+                                    "labdb"
+                                ]
+                            },
+                            "failureThreshold": 3,
+                            "initialDelaySeconds": 30,
+                            "periodSeconds": 10,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 1
+                        },
+                        "name": "postgres",
+                        "ports": [
+                            {
+                                "containerPort": 5432,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "readinessProbe": {
+                            "exec": {
+                                "command": [
+                                    "pg_isready",
+                                    "-U",
+                                    "lab",
+                                    "-d",
+                                    "labdb"
+                                ]
+                            },
+                            "failureThreshold": 3,
+                            "initialDelaySeconds": 5,
+                            "periodSeconds": 5,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 1
+                        },
+                        "resources": {
+                            "limits": {
+                                "cpu": "250m",
+                                "memory": "256Mi"
+                            },
+                            "requests": {
+                                "cpu": "50m",
+                                "memory": "100Mi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/lib/postgresql/data",
+                                "name": "data"
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "emptyDir": {},
+                        "name": "data"
+                    }
+                ]
+            }
+        }
+    },
+    "status": {
+        "conditions": [
+            {
+                "lastTransitionTime": "2026-11-02T15:00:40Z",
+                "lastUpdateTime": "2026-11-02T15:00:40Z",
+                "message": "Deployment has minimum availability.",
+                "reason": "MinimumReplicasAvailable",
+                "status": "True",
+                "type": "Available"
+            },
+            {
+                "lastTransitionTime": "2026-11-02T15:00:29Z",
+                "lastUpdateTime": "2026-11-02T15:00:40Z",
+                "message": "ReplicaSet \"postgres-86b7d7586f\" has successfully progressed.",
+                "reason": "NewReplicaSetAvailable",
+                "status": "True",
+                "type": "Progressing"
+            }
+        ],
+        "observedGeneration": 2,
+        "terminatingReplicas": 0
+    }
+}

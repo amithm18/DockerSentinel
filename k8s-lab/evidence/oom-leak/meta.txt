@@ -1,0 +1,4 @@
+scenario: oom-leak
+deployment: memory-hog
+pod: memory-hog-79d6b86656-r89gj
+captured_at: 2026-11-02T15:10:41Z

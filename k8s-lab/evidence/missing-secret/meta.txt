@@ -1,0 +1,4 @@
+scenario: missing-secret
+deployment: db-app
+pod: db-app-6cfd86b699-5txwv
+captured_at: 2026-11-02T15:12:40Z

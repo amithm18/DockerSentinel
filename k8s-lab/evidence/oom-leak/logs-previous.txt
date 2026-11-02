@@ -1,0 +1,9 @@
+[memory-hog] starting MODE=leak WORKING_SET_MB=30
+[memory-hog] holding 30 MB, rss=80 MB
+[memory-hog] leak starts in 20s at 10 MB/s
+[memory-hog] listening on 8080
+[memory-hog] mode=leak held=30 MB rss=81 MB
+[memory-hog] mode=leak held=30 MB rss=83 MB
+[memory-hog] mode=leak held=30 MB rss=83 MB
+[memory-hog] mode=leak held=30 MB rss=83 MB
+[memory-hog] mode=leak held=80 MB rss=134 MB

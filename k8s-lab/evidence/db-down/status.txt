@@ -1,0 +1,5 @@
+POD                            PHASE     READY   RESTARTS   WAITING            LAST_TERMINATED   EXIT     IMAGE
+bad-release-6946877686-68hn5   Running   true    0          <none>             <none>            <none>   lab/bad-release:v1
+bad-release-6946877686-wf68z   Running   true    0          <none>             <none>            <none>   lab/bad-release:v1
+db-app-7455b49c45-qqchb        Running   false   2          CrashLoopBackOff   Error             1        lab/db-app:v1
+memory-hog-775784cbcc-w4btt    Running   true    0          <none>             <none>            <none>   lab/memory-hog:v1

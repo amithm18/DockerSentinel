@@ -1,0 +1,9 @@
+deployment.apps/memory-hog 
+REVISION  CHANGE-CAUSE
+1         <none>
+4         <none>
+5         <none>
+8         <none>
+9         <none>
+10        <none>
+

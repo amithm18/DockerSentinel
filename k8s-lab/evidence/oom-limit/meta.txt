@@ -1,0 +1,4 @@
+scenario: oom-limit
+deployment: memory-hog
+pod: memory-hog-64cd54f7d7-84wr2
+captured_at: 2026-11-02T15:09:02Z

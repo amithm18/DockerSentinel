@@ -1,0 +1,4 @@
+scenario: db-down
+deployment: db-app
+pod: db-app-7455b49c45-qqchb
+captured_at: 2026-11-02T15:14:10Z

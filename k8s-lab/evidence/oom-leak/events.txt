@@ -1,0 +1,176 @@
+LAST SEEN   TYPE      REASON              OBJECT                              MESSAGE
+10m         Normal    ScalingReplicaSet   deployment/bad-release              Scaled up replica set bad-release-6946877686 from 0 to 2
+10m         Normal    SuccessfulCreate    replicaset/bad-release-6946877686   Created pod: bad-release-6946877686-flpnl
+10m         Normal    SuccessfulCreate    replicaset/postgres-86b7d7586f      Created pod: postgres-86b7d7586f-drdqp
+10m         Normal    SuccessfulCreate    replicaset/db-app-6bf6d964bb        Created pod: db-app-6bf6d964bb-fx5pp
+10m         Normal    Started             pod/postgres-86b7d7586f-drdqp       Container started
+10m         Normal    Created             pod/postgres-86b7d7586f-drdqp       Container created
+10m         Normal    Pulled              pod/postgres-86b7d7586f-drdqp       Container image "postgres:16-alpine" already present on machine and can be accessed by the pod
+10m         Normal    Scheduled           pod/postgres-86b7d7586f-drdqp       Successfully assigned lab/postgres-86b7d7586f-drdqp to docksentinel-worker
+10m         Normal    ScalingReplicaSet   deployment/memory-hog               Scaled up replica set memory-hog-b66bc479f from 0 to 1
+10m         Normal    SuccessfulCreate    replicaset/memory-hog-b66bc479f     Created pod: memory-hog-b66bc479f-4pgtw
+10m         Normal    Scheduled           pod/db-app-6bf6d964bb-fx5pp         Successfully assigned lab/db-app-6bf6d964bb-fx5pp to docksentinel-worker
+10m         Normal    Pulled              pod/bad-release-6946877686-flpnl    Container image "lab/bad-release:v1" already present on machine and can be accessed by the pod
+10m         Normal    Created             pod/memory-hog-b66bc479f-4pgtw      Container created
+10m         Normal    Pulled              pod/memory-hog-b66bc479f-4pgtw      Container image "lab/memory-hog:v1" already present on machine and can be accessed by the pod
+10m         Normal    Scheduled           pod/memory-hog-b66bc479f-4pgtw      Successfully assigned lab/memory-hog-b66bc479f-4pgtw to docksentinel-worker
+10m         Normal    SuccessfulCreate    replicaset/bad-release-6946877686   Created pod: bad-release-6946877686-6qmz4
+10m         Normal    Scheduled           pod/bad-release-6946877686-6qmz4    Successfully assigned lab/bad-release-6946877686-6qmz4 to docksentinel-worker
+10m         Normal    Pulled              pod/bad-release-6946877686-6qmz4    Container image "lab/bad-release:v1" already present on machine and can be accessed by the pod
+10m         Normal    ScalingReplicaSet   deployment/db-app                   Scaled up replica set db-app-6bf6d964bb from 0 to 1
+10m         Normal    ScalingReplicaSet   deployment/postgres                 Scaled up replica set postgres-86b7d7586f from 0 to 1
+10m         Normal    Created             pod/bad-release-6946877686-flpnl    Container created
+10m         Normal    Scheduled           pod/bad-release-6946877686-flpnl    Successfully assigned lab/bad-release-6946877686-flpnl to docksentinel-worker
+10m         Normal    Started             pod/bad-release-6946877686-6qmz4    Container started
+10m         Normal    Created             pod/bad-release-6946877686-6qmz4    Container created
+10m         Normal    Started             pod/memory-hog-b66bc479f-4pgtw      Container started
+10m         Normal    Started             pod/bad-release-6946877686-flpnl    Container started
+10m         Warning   Unhealthy           pod/db-app-6bf6d964bb-fx5pp         Readiness probe failed: HTTP probe failed with statuscode: 503
+10m         Warning   Unhealthy           pod/postgres-86b7d7586f-drdqp       Readiness probe failed: /var/run/postgresql:5432 - no response
+10m         Normal    Started             pod/db-app-6bf6d964bb-fx5pp         Container started
+10m         Normal    Created             pod/db-app-6bf6d964bb-fx5pp         Container created
+10m         Normal    Pulled              pod/db-app-6bf6d964bb-fx5pp         Container image "lab/db-app:v1" already present on machine and can be accessed by the pod
+10m         Warning   Unhealthy           pod/db-app-6bf6d964bb-fx5pp         Readiness probe failed: Get "http://10.244.1.3:8080/healthz": dial tcp 10.244.1.3:8080: connect: connection refused
+8m16s       Normal    ScalingReplicaSet   deployment/db-app                   Scaled up replica set db-app-f485f97c8 from 0 to 1
+8m16s       Normal    Scheduled           pod/db-app-f485f97c8-jb8ld          Successfully assigned lab/db-app-f485f97c8-jb8ld to docksentinel-worker
+8m16s       Normal    SuccessfulCreate    replicaset/db-app-f485f97c8         Created pod: db-app-f485f97c8-jb8ld
+8m15s       Normal    Started             pod/db-app-f485f97c8-jb8ld          Container started
+8m15s       Normal    Created             pod/db-app-f485f97c8-jb8ld          Container created
+8m15s       Normal    Pulled              pod/db-app-f485f97c8-jb8ld          Container image "lab/db-app:v1" already present on machine and can be accessed by the pod
+8m10s       Normal    Killing             pod/db-app-6bf6d964bb-fx5pp         Stopping container app
+8m10s       Normal    SuccessfulDelete    replicaset/db-app-6bf6d964bb        Deleted pod: db-app-6bf6d964bb-fx5pp
+8m10s       Normal    ScalingReplicaSet   deployment/db-app                   Scaled down replica set db-app-6bf6d964bb from 1 to 0
+7m27s       Normal    ScalingReplicaSet   deployment/bad-release              Scaled up replica set bad-release-55bbcfb9b7 from 0 to 1
+7m27s       Normal    Scheduled           pod/memory-hog-67c4fd758-wnqrs      Successfully assigned lab/memory-hog-67c4fd758-wnqrs to docksentinel-worker
+7m27s       Normal    SuccessfulCreate    replicaset/db-app-6556685487        Created pod: db-app-6556685487-wffr5
+7m27s       Normal    ScalingReplicaSet   deployment/db-app                   Scaled up replica set db-app-6556685487 from 0 to 1
+7m27s       Normal    Scheduled           pod/bad-release-55bbcfb9b7-stvx8    Successfully assigned lab/bad-release-55bbcfb9b7-stvx8 to docksentinel-worker
+7m27s       Normal    SuccessfulCreate    replicaset/memory-hog-67c4fd758     Created pod: memory-hog-67c4fd758-wnqrs
+7m27s       Normal    Scheduled           pod/db-app-6556685487-wffr5         Successfully assigned lab/db-app-6556685487-wffr5 to docksentinel-worker
+7m27s       Normal    SuccessfulCreate    replicaset/bad-release-55bbcfb9b7   Created pod: bad-release-55bbcfb9b7-stvx8
+7m26s       Normal    Created             pod/memory-hog-67c4fd758-wnqrs      Container created
+7m26s       Normal    Pulled              pod/bad-release-55bbcfb9b7-stvx8    Container image "lab/bad-release:v1" already present on machine and can be accessed by the pod
+7m26s       Normal    Started             pod/db-app-6556685487-wffr5         Container started
+7m26s       Normal    Created             pod/db-app-6556685487-wffr5         Container created
+7m26s       Normal    Pulled              pod/memory-hog-67c4fd758-wnqrs      Container image "lab/memory-hog:v1" already present on machine and can be accessed by the pod
+7m26s       Normal    Started             pod/memory-hog-67c4fd758-wnqrs      Container started
+7m26s       Normal    Started             pod/bad-release-55bbcfb9b7-stvx8    Container started
+7m26s       Normal    Pulled              pod/db-app-6556685487-wffr5         Container image "lab/db-app:v1" already present on machine and can be accessed by the pod
+7m26s       Normal    Created             pod/bad-release-55bbcfb9b7-stvx8    Container created
+7m20s       Normal    SuccessfulDelete    replicaset/bad-release-6946877686   Deleted pod: bad-release-6946877686-6qmz4
+7m20s       Normal    ScalingReplicaSet   deployment/memory-hog               Scaled down replica set memory-hog-b66bc479f from 1 to 0
+7m20s       Normal    Killing             pod/memory-hog-b66bc479f-4pgtw      Stopping container app
+7m20s       Normal    SuccessfulCreate    replicaset/bad-release-55bbcfb9b7   Created pod: bad-release-55bbcfb9b7-zwvc9
+7m20s       Normal    ScalingReplicaSet   deployment/bad-release              Scaled down replica set bad-release-6946877686 from 2 to 1
+7m20s       Normal    Killing             pod/bad-release-6946877686-6qmz4    Stopping container app
+7m20s       Normal    Scheduled           pod/bad-release-55bbcfb9b7-zwvc9    Successfully assigned lab/bad-release-55bbcfb9b7-zwvc9 to docksentinel-worker
+7m20s       Normal    Pulled              pod/bad-release-55bbcfb9b7-zwvc9    Container image "lab/bad-release:v1" already present on machine and can be accessed by the pod
+7m20s       Normal    Created             pod/bad-release-55bbcfb9b7-zwvc9    Container created
+7m20s       Normal    Started             pod/bad-release-55bbcfb9b7-zwvc9    Container started
+7m20s       Normal    SuccessfulDelete    replicaset/memory-hog-b66bc479f     Deleted pod: memory-hog-b66bc479f-4pgtw
+7m20s       Normal    ScalingReplicaSet   deployment/bad-release              Scaled up replica set bad-release-55bbcfb9b7 from 1 to 2
+7m20s       Normal    ScalingReplicaSet   deployment/db-app                   Scaled down replica set db-app-f485f97c8 from 1 to 0
+7m20s       Normal    SuccessfulDelete    replicaset/db-app-f485f97c8         Deleted pod: db-app-f485f97c8-jb8ld
+7m20s       Normal    Killing             pod/db-app-f485f97c8-jb8ld          Stopping container app
+7m14s       Normal    SuccessfulDelete    replicaset/bad-release-6946877686   Deleted pod: bad-release-6946877686-flpnl
+7m14s       Normal    ScalingReplicaSet   deployment/bad-release              Scaled down replica set bad-release-6946877686 from 1 to 0
+7m14s       Normal    Killing             pod/bad-release-6946877686-flpnl    Stopping container app
+7m2s        Normal    Started             pod/bad-release-6946877686-68hn5    Container started
+7m2s        Normal    Killing             pod/bad-release-55bbcfb9b7-stvx8    Stopping container app
+7m2s        Normal    SuccessfulCreate    replicaset/bad-release-6946877686   Created pod: bad-release-6946877686-wf68z
+7m2s        Normal    SuccessfulCreate    replicaset/bad-release-6946877686   Created pod: bad-release-6946877686-68hn5
+7m2s        Normal    Created             pod/bad-release-6946877686-68hn5    Container created
+7m2s        Normal    Killing             pod/bad-release-55bbcfb9b7-zwvc9    Stopping container app
+7m2s        Normal    Scheduled           pod/bad-release-6946877686-68hn5    Successfully assigned lab/bad-release-6946877686-68hn5 to docksentinel-worker
+7m2s        Normal    ScalingReplicaSet   deployment/bad-release              Scaled up replica set bad-release-6946877686 from 0 to 2
+7m2s        Normal    Created             pod/bad-release-6946877686-wf68z    Container created
+7m2s        Normal    Pulled              pod/bad-release-6946877686-wf68z    Container image "lab/bad-release:v1" already present on machine and can be accessed by the pod
+7m2s        Normal    Scheduled           pod/bad-release-6946877686-wf68z    Successfully assigned lab/bad-release-6946877686-wf68z to docksentinel-worker
+7m2s        Normal    Pulled              pod/bad-release-6946877686-68hn5    Container image "lab/bad-release:v1" already present on machine and can be accessed by the pod
+7m1s        Normal    Started             pod/bad-release-6946877686-wf68z    Container started
+6m47s       Normal    Created             pod/db-app-7b9545c56c-rnpt7         Container created
+6m47s       Normal    ScalingReplicaSet   deployment/db-app                   Scaled up replica set db-app-7b9545c56c from 0 to 1
+6m47s       Normal    Scheduled           pod/db-app-7b9545c56c-rnpt7         Successfully assigned lab/db-app-7b9545c56c-rnpt7 to docksentinel-worker
+6m47s       Normal    Pulled              pod/db-app-7b9545c56c-rnpt7         Container image "lab/db-app:v1" already present on machine and can be accessed by the pod
+6m47s       Normal    SuccessfulCreate    replicaset/db-app-7b9545c56c        Created pod: db-app-7b9545c56c-rnpt7
+6m47s       Normal    Started             pod/db-app-7b9545c56c-rnpt7         Container started
+6m41s       Normal    Pulled              pod/memory-hog-5987c8b5db-dtqp8     Container image "lab/memory-hog:v1" already present on machine and can be accessed by the pod
+6m41s       Normal    SuccessfulCreate    replicaset/memory-hog-5987c8b5db    Created pod: memory-hog-5987c8b5db-dtqp8
+6m41s       Normal    Started             pod/memory-hog-5987c8b5db-dtqp8     Container started
+6m41s       Normal    Killing             pod/db-app-6556685487-wffr5         Stopping container app
+6m41s       Normal    SuccessfulDelete    replicaset/db-app-6556685487        Deleted pod: db-app-6556685487-wffr5
+6m41s       Normal    Scheduled           pod/memory-hog-5987c8b5db-dtqp8     Successfully assigned lab/memory-hog-5987c8b5db-dtqp8 to docksentinel-worker
+6m41s       Normal    Created             pod/memory-hog-5987c8b5db-dtqp8     Container created
+6m41s       Normal    ScalingReplicaSet   deployment/db-app                   Scaled down replica set db-app-6556685487 from 1 to 0
+6m35s       Normal    SuccessfulDelete    replicaset/memory-hog-67c4fd758     Deleted pod: memory-hog-67c4fd758-wnqrs
+6m35s       Normal    Killing             pod/memory-hog-67c4fd758-wnqrs      Stopping container app
+3m38s       Normal    ScalingReplicaSet   deployment/memory-hog               Scaled up replica set memory-hog-67c4fd758 from 0 to 1
+3m38s       Normal    SuccessfulCreate    replicaset/memory-hog-67c4fd758     Created pod: memory-hog-67c4fd758-gnqjs
+3m38s       Normal    Started             pod/memory-hog-67c4fd758-gnqjs      Container started
+3m38s       Normal    Created             pod/memory-hog-67c4fd758-gnqjs      Container created
+3m38s       Normal    Pulled              pod/memory-hog-67c4fd758-gnqjs      Container image "lab/memory-hog:v1" already present on machine and can be accessed by the pod
+3m38s       Normal    Scheduled           pod/memory-hog-67c4fd758-gnqjs      Successfully assigned lab/memory-hog-67c4fd758-gnqjs to docksentinel-worker
+3m32s       Normal    SuccessfulDelete    replicaset/memory-hog-5987c8b5db    Deleted pod: memory-hog-5987c8b5db-dtqp8
+3m32s       Normal    Killing             pod/memory-hog-5987c8b5db-dtqp8     Stopping container app
+3m22s       Normal    SuccessfulCreate    replicaset/memory-hog-5987c8b5db    Created pod: memory-hog-5987c8b5db-pnt47
+3m22s       Normal    Scheduled           pod/memory-hog-5987c8b5db-pnt47     Successfully assigned lab/memory-hog-5987c8b5db-pnt47 to docksentinel-worker
+3m22s       Normal    ScalingReplicaSet   deployment/memory-hog               Scaled up replica set memory-hog-5987c8b5db from 0 to 1
+3m21s       Normal    Pulled              pod/memory-hog-5987c8b5db-pnt47     Container image "lab/memory-hog:v1" already present on machine and can be accessed by the pod
+3m21s       Normal    Started             pod/memory-hog-5987c8b5db-pnt47     Container started
+3m21s       Normal    Created             pod/memory-hog-5987c8b5db-pnt47     Container created
+3m15s       Normal    ScalingReplicaSet   deployment/memory-hog               Scaled down replica set memory-hog-67c4fd758 from 1 to 0
+3m15s       Normal    SuccessfulDelete    replicaset/memory-hog-67c4fd758     Deleted pod: memory-hog-67c4fd758-gnqjs
+3m15s       Normal    Killing             pod/memory-hog-67c4fd758-gnqjs      Stopping container app
+2m27s       Normal    Scheduled           pod/memory-hog-64cd54f7d7-qtrh4     Successfully assigned lab/memory-hog-64cd54f7d7-qtrh4 to docksentinel-worker
+2m27s       Normal    SuccessfulCreate    replicaset/memory-hog-64cd54f7d7    Created pod: memory-hog-64cd54f7d7-qtrh4
+2m14s       Normal    Started             pod/memory-hog-64cd54f7d7-qtrh4     Container started
+2m14s       Normal    Created             pod/memory-hog-64cd54f7d7-qtrh4     Container created
+2m14s       Normal    Pulled              pod/memory-hog-64cd54f7d7-qtrh4     Container image "lab/memory-hog:v1" already present on machine and can be accessed by the pod
+2m7s        Warning   BackOff             pod/memory-hog-64cd54f7d7-qtrh4     Back-off restarting failed container app in pod memory-hog-64cd54f7d7-qtrh4_lab(7676d36c-b92e-49c0-928f-02be0ab8eef9)
+2m3s        Normal    SuccessfulCreate    replicaset/memory-hog-775784cbcc    Created pod: memory-hog-775784cbcc-8wqfz
+2m3s        Normal    SuccessfulDelete    replicaset/memory-hog-64cd54f7d7    Deleted pod: memory-hog-64cd54f7d7-qtrh4
+2m3s        Normal    ScalingReplicaSet   deployment/memory-hog               Scaled up replica set memory-hog-775784cbcc from 0 to 1
+2m3s        Normal    Scheduled           pod/memory-hog-775784cbcc-8wqfz     Successfully assigned lab/memory-hog-775784cbcc-8wqfz to docksentinel-worker
+2m2s        Normal    Pulled              pod/memory-hog-775784cbcc-8wqfz     Container image "lab/memory-hog:v1" already present on machine and can be accessed by the pod
+2m2s        Normal    Created             pod/memory-hog-775784cbcc-8wqfz     Container created
+2m2s        Normal    Started             pod/memory-hog-775784cbcc-8wqfz     Container started
+117s        Normal    Killing             pod/memory-hog-5987c8b5db-pnt47     Stopping container app
+117s        Normal    SuccessfulDelete    replicaset/memory-hog-5987c8b5db    Deleted pod: memory-hog-5987c8b5db-pnt47
+117s        Normal    ScalingReplicaSet   deployment/memory-hog               Scaled down replica set memory-hog-5987c8b5db from 1 to 0
+116s        Normal    Scheduled           pod/db-app-68cdb5dd5d-9d4hz         Successfully assigned lab/db-app-68cdb5dd5d-9d4hz to docksentinel-worker
+116s        Normal    Pulled              pod/db-app-68cdb5dd5d-9d4hz         Container image "lab/db-app:v1" already present on machine and can be accessed by the pod
+116s        Normal    SuccessfulCreate    replicaset/db-app-68cdb5dd5d        Created pod: db-app-68cdb5dd5d-9d4hz
+116s        Normal    Created             pod/db-app-68cdb5dd5d-9d4hz         Container created
+116s        Normal    ScalingReplicaSet   deployment/db-app                   Scaled up replica set db-app-68cdb5dd5d from 0 to 1
+116s        Normal    Started             pod/db-app-68cdb5dd5d-9d4hz         Container started
+110s        Normal    ScalingReplicaSet   deployment/memory-hog               Scaled up replica set memory-hog-64cd54f7d7 from 0 to 1
+110s        Normal    Killing             pod/db-app-7b9545c56c-rnpt7         Stopping container app
+110s        Normal    SuccessfulDelete    replicaset/db-app-7b9545c56c        Deleted pod: db-app-7b9545c56c-rnpt7
+110s        Normal    ScalingReplicaSet   deployment/db-app                   Scaled down replica set db-app-7b9545c56c from 1 to 0
+110s        Normal    Scheduled           pod/memory-hog-64cd54f7d7-84wr2     Successfully assigned lab/memory-hog-64cd54f7d7-84wr2 to docksentinel-worker
+110s        Normal    SuccessfulCreate    replicaset/memory-hog-64cd54f7d7    Created pod: memory-hog-64cd54f7d7-84wr2
+108s        Normal    Started             pod/memory-hog-64cd54f7d7-84wr2     Container started
+108s        Normal    Pulled              pod/memory-hog-64cd54f7d7-84wr2     Container image "lab/memory-hog:v1" already present on machine and can be accessed by the pod
+108s        Normal    Created             pod/memory-hog-64cd54f7d7-84wr2     Container created
+99s         Normal    SuccessfulDelete    replicaset/memory-hog-64cd54f7d7    Deleted pod: memory-hog-64cd54f7d7-84wr2
+99s         Normal    ScalingReplicaSet   deployment/memory-hog               Scaled down replica set memory-hog-64cd54f7d7 from 1 to 0
+99s         Warning   BackOff             pod/memory-hog-64cd54f7d7-84wr2     Back-off restarting failed container app in pod memory-hog-64cd54f7d7-84wr2_lab(97ab5cf6-800d-49aa-bc5f-8ac7f029bf4e)
+78s         Normal    SuccessfulCreate    replicaset/db-app-548788fb59        Created pod: db-app-548788fb59-qxkj5
+78s         Normal    Scheduled           pod/db-app-548788fb59-qxkj5         Successfully assigned lab/db-app-548788fb59-qxkj5 to docksentinel-worker
+77s         Normal    Pulled              pod/db-app-548788fb59-qxkj5         Container image "lab/db-app:v1" already present on machine and can be accessed by the pod
+77s         Normal    Started             pod/db-app-548788fb59-qxkj5         Container started
+77s         Normal    Created             pod/db-app-548788fb59-qxkj5         Container created
+72s         Normal    ScalingReplicaSet   deployment/db-app                   (combined from similar events): Scaled down replica set db-app-68cdb5dd5d from 1 to 0
+72s         Normal    Killing             pod/db-app-68cdb5dd5d-9d4hz         Stopping container app
+72s         Normal    SuccessfulDelete    replicaset/db-app-68cdb5dd5d        Deleted pod: db-app-68cdb5dd5d-9d4hz
+71s         Normal    Scheduled           pod/memory-hog-79d6b86656-r89gj     Successfully assigned lab/memory-hog-79d6b86656-r89gj to docksentinel-worker
+71s         Normal    SuccessfulCreate    replicaset/memory-hog-79d6b86656    Created pod: memory-hog-79d6b86656-r89gj
+66s         Normal    ScalingReplicaSet   deployment/memory-hog               (combined from similar events): Scaled down replica set memory-hog-775784cbcc from 1 to 0
+66s         Normal    SuccessfulDelete    replicaset/memory-hog-775784cbcc    Deleted pod: memory-hog-775784cbcc-8wqfz
+66s         Normal    Killing             pod/memory-hog-775784cbcc-8wqfz     Stopping container app
+41s         Warning   Unhealthy           pod/memory-hog-79d6b86656-r89gj     Readiness probe failed: Get "http://10.244.1.23:8080/healthz": dial tcp 10.244.1.23:8080: connect: connection refused
+11s         Warning   Unhealthy           pod/memory-hog-79d6b86656-r89gj     Liveness probe failed: dial tcp 10.244.1.23:8080: connect: connection refused
+10s         Warning   BackOff             pod/memory-hog-79d6b86656-r89gj     Back-off restarting failed container app in pod memory-hog-79d6b86656-r89gj_lab(9bb4edff-ba64-4b2f-a24b-4dd9f01ccc1e)
+1s          Normal    Started             pod/memory-hog-79d6b86656-r89gj     Container started
+1s          Normal    Created             pod/memory-hog-79d6b86656-r89gj     Container created
+1s          Normal    Pulled              pod/memory-hog-79d6b86656-r89gj     Container image "lab/memory-hog:v1" already present on machine and can be accessed by the pod
